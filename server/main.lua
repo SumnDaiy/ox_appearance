@@ -61,6 +61,10 @@ RegisterNetEvent('ox_appearance:loadOutfit', function(slot)
 	TriggerClientEvent('ox_appearance:outfit', source, slot, identifier and LoadOutfit(identifier, slot) or {})
 end)
 
+lib.addCommand('group.admin', {'setappearance'}, function(source, args)
+	TriggerClientEvent('ox_appearance:setAppearance', args.target)
+end, {'target:number'})
+
 AddEventHandler('playerDropped', function()
 	Players[source] = nil
 end)
